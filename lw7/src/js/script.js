@@ -1,5 +1,4 @@
- function isPrimeNumber(let n) {
-   let n;
+ function isPrimeNumber(n) {
    let isPrime;
 
    if (typeof n == 'number') {
