@@ -29,9 +29,9 @@
          }
        }
        if (isPrime) {
-         console.log(k + ' is prime number')
+         console.log(k + ' is prime number');
        } else {
-         console.log(k + ' is not prime number')
+         console.log(k + ' is not prime number');
        }
      }
 
