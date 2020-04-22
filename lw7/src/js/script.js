@@ -33,6 +33,8 @@
              }
            }
          }
+       } else {
+         isPrime = false;
        }
        if (isPrime) {
          console.log(k + ' is prime number');
