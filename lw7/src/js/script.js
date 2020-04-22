@@ -1,16 +1,20 @@
  function isPrimeNumber(n) {
    let isPrime;
 
-   if (typeof n == 'number' && n != 0 && n != 1) {
-     for (let i = 2; i <= n; i++) {
-       isPrime = true;
-       for (let j = 2; j < i; j++) {
-         if (i % j == 0) {
-           isPrime = false;
-           break;
+   if (typeof n == 'number') {
+	 if(n != 0 && n != 1){
+       for (let i = 2; i <= n; i++) {
+         isPrime = true;
+         for (let j = 2; j < i; j++) {
+           if (i % j == 0) {
+             isPrime = false;
+             break;
+           }
          }
        }
-     }
+     } else {
+	   isPrime = false;
+	 }
    if (isPrime) {
      console.log(n + ' is prime number');
    } else {
@@ -19,7 +23,7 @@
 
    } else if (typeof n == 'object') {
        for (let k of n) {
-         if(k == 'number' && k != 0 && k != 1) {
+         if((typeof k == 'number') && k != 0 && k != 1) {
            for (let i = 2; i <= k; i++) {
              isPrime = true;
              for (let j = 2; j < i; j++) {
