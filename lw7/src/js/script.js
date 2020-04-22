@@ -2,7 +2,7 @@
    let isPrime;
 
    if (typeof n == 'number') {
-	 if(n != 0 && n != 1){
+     if(n != 0 && n != 1){
        for (let i = 2; i <= n; i++) {
          isPrime = true;
          for (let j = 2; j < i; j++) {
@@ -12,15 +12,16 @@
            }
          }
        }
+       if (isPrime) {
+         console.log(n + ' is prime number');
+       } else {
+         console.log(n + ' is not prime number');
+       }
+		 
      } else {
-	   isPrime = false;
-	 }
-   if (isPrime) {
-     console.log(n + ' is prime number');
-   } else {
-     console.log(n + ' is not prime number');
-   }
-
+       console.log(n + ' is neither');
+     }
+	   
    } else if (typeof n == 'object') {
        for (let k of n) {
          if((typeof k == 'number') && k != 0 && k != 1) {
@@ -33,16 +34,16 @@
              }
            }
          }
+           if (isPrime) {
+             console.log(k + ' is prime number');
+           } else {
+             console.log(k + ' is not prime number');
+           }	
+		 
        } else {
-         isPrime = false;
+	 console.log(k + ' is neither');
        }
-       if (isPrime) {
-         console.log(k + ' is prime number');
-       } else {
-         console.log(k + ' is not prime number');
-       }
-     }
-
+     }	 
    } else {
      console.log('incorrect input data');
    }
