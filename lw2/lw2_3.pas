@@ -1,22 +1,18 @@
 PROGRAM PrintHello(INPUT, OUTPUT);
-USES
-  DOS;
+USES DOS;
 VAR
-  Query, namec: STRING;
-  L, Temp: INTEGER;
+  Name: STRING;
 BEGIN
   WRITELN('Content-Type: text/plain');
   WRITELN;
-  Query := GetEnV('QUERY_STRING');
-  namec := copy(Query, 0, 4);
-  IF namec = 'name'
+  Name := GetEnv('QUERY_STRING');
+  IF POS('name=', Name) <> 0
   THEN
-    BEGIN
-      L := Length(Query);
-      Temp := L - 4;
-      Query := copy(Query, 6, Temp);
-      WRITELN('HELLO DEAR ', Query)
-    END
+    IF POS('&', Name) > 0
+    THEN
+      WRITELN('Hello dear ', COPY(Name, 6, POS('&', Name) - 6))
+    ELSE
+      WRITELN('Hello dear ', COPY(Name, 6, LENGTH(Name) - 4))
   ELSE
-    WRITELN('HELLO ANONYMUS')
+    WRITELN('Hello anonymous')
 END.
