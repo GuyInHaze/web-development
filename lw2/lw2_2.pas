@@ -1,19 +1,19 @@
 PROGRAM PrintMessage(INPUT, OUTPUT);
-USES
-  DOS;
+USES DOS;
 VAR
-  Query: STRING;
+  Lanterns: STRING;
 BEGIN
   WRITELN('Content-Type: text/plain');
   WRITELN;
-  Query := GetEnV('QUERY_STRING');
-  IF Query = 'lanterns=1'
+  Lanterns := GetEnv('QUERY_STRING');
+  IF Lanterns = 'lanterns=1'
   THEN
-    WRITELN('land.')
+    WRITELN('The british are coming by land.')
   ELSE
-    IF Query = 'lanterns=2'
+    IF Lanterns = 'lanterns=2'
     THEN
-      WRITELN('sea.')
+      WRITELN('The british are coming by sea.')
     ELSE
-      WRITELN('sarah didn'' say.')
+      WRITELN('Sarah didn'' say.')
 END.
+
