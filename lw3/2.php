@@ -20,7 +20,7 @@ else
     echo 'no';
 }
   
-function getBooleanOnIn($parametr): ?boolean
+function getBooleanOnIn(string $parametr): ?boolean
 {
     $forcheckall = 'abcdefghijklmnopqrstyvwxyz1234567890';
     $symbs = 'abcdefghijklmnopqrstyvwxyz';
