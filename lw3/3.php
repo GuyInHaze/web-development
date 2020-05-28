@@ -1,70 +1,67 @@
 <?php 
-    header('Content-Type: text/plain');
+header('Content-Type: text/plain');
 
-    $password = getGETParameter('password');
-    $numbers = '0123456789';
-    $power = 0;
-    if ($password !== null)
-    {
-  	    $power = 4 * strlen($password);
-  	    $upper_Letters = 0;
-        $lower_Letters = 0;
-   	    $Letters_Numbers = 0;
-  	    $number_Amount = 0;
-  	    $sub_Str = "";
-  	    $sub_Str_In_Count = 0;
-  	    for ($i = 0; $i < strlen($password); $i++)
-  	    {
-
-  		  if (stripos($numbers, $password[$i]) !== false)
+$password = getGETParameter('password');
+$numbers = '0123456789';
+$power = 0;
+if ($password !== null)
+{
+    $power = 4 * strlen($password);
+    $upperLetters = 0;
+    $lowerLetters = 0;
+   	$lettersNumber = 0;
+  	$numberAmount = 0;
+  	$subStr = "";
+  	$subStrInCount = 0;
+  	for ($i = 0; $i < strlen($password); $i++)
+  	{
+  	    if (stripos($numbers, $password[$i]) !== false)
   		  {
             $power += 4;
-            $number_Amount++;
+            $numberAmount++;
   		  }
-  		  if (stripos($sub_Str, $password[$i]) === false)
+  		  if (stripos($subStr, $password[$i]) === false)
   		  {
-  		      $sub_Str = $sub_Str.$password[$i];
+  		      $subStr = $subStr.$password[$i];
   		  }
   		  if (strtoupper($password[$i]) == $password[$i] & stripos($numbers, $password[$i]) === false)
   		  {
-            $upper_Letters += 1;
+            $upperLetters += 1;
   		  }
   		  if (strtolower($password[$i]) == $password[$i] & stripos($numbers, $password[$i]) === false)
   		  {
-  		      $lower_Letters+= 1; 
+  		      $lowerLetters+= 1; 
   		  }
-  	  }
+  	}
     
-      $Letters_Numbers = $lower_Letters + $lower_Letters;
+    $lettersNumber = $lowerLetters + $upperLetters;
 
-  	  for ($i = 0; $i < strlen($sub_Str); $i++)
-  	  {
-
-        if (substr_count($password, $sub_Str[$i]) > 1)
+  	for ($i = 0; $i < strlen($subStr); $i++)
+  	{
+        if (substr_count($password, $subStr[$i]) > 1)
         {
-      	    $sub_Str_In_Count += substr_count($password, $sub_Str[$i]);
+      	    $subStrInCount += substr_count($password, $subStr[$i]);
         }
-  	  }
+  	}
 
-  	  $power -= $sub_Str_In_Count;
+  	$power -= $subStrInCount;
     
-      if ($Letters_Numbers == 0 & $number_Amount !== 0)
-      {
-          $power -= strlen($password);	
-      }
-
-      if ($Letters_Numbers !== 0 & $number_Amount == 0)
-      {
-          $power -= strlen($password);	
-      }
-
-      $power += 2 * (strlen($password) - $lower_Letters);
-      $power += 2 * (strlen($password) - $lower_Letters);
-    } 
-
-    echo $power;
-
-    function getGETParameter($parameter): ?string 
+    if ($lettersNumber == 0 & $numberAmount !== 0)
     {
-        return isset($_GET[$parameter]) ? $_GET[$parameter] : null;
+        $power -= strlen($password);	
     }
+    if ($lettersNumber !== 0 & $numberAmount == 0)
+    {
+        $power -= strlen($password);	
+    }
+
+    $power += 2 * (strlen($password) - $lowerLetters);
+    $power += 2 * (strlen($password) - $upperLetters);
+} 
+
+echo $power;
+
+function getGETParameter($parameter): ?string 
+{
+    return isset($_GET[$parameter]) ? $_GET[$parameter] : null;
+}
