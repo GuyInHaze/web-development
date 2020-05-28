@@ -30,7 +30,7 @@ if ($password !== null)
         }
         if (strtolower($password[$i]) == $password[$i] & stripos($numbers, $password[$i]) === false)
         {
-            $lowerLetters+= 1; 
+            $lowerLetters += 1; 
         }
     }
 
@@ -55,16 +55,6 @@ if ($password !== null)
         $power -= strlen($password);	
     }
 
-    $power += 2 * (strlen($password) - $lowerLetters);
-    $power += 2 * (strlen($password) - $upperLetters);
-} 
-
-echo $power;
-
-function getGETParameter($parameter): ?string 
-{
-    return isset($_GET[$parameter]) ? $_GET[$parameter] : null;
-}
     $power += 2 * (strlen($password) - $lowerLetters);
     $power += 2 * (strlen($password) - $upperLetters);
 } 
