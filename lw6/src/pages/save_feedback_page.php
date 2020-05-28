@@ -34,5 +34,5 @@ function saveData(array $args): void
     $fileData = array_diff_key($args, ['success' => true, 'name_error_msg' => '', 'email_error_msg' => '', 'message_error_msg' => '']);
     $fileData = json_encode($fileData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     $fileData = str_replace(['{', '"', '}'], '', $fileData);
-    file_put_contents('../web/messages/' . $args['email'] . '.txt', $fileData);
+    file_put_contents(__DIR__ . '/../../web/messages/' . $args['email'] . '.txt', $fileData);
 }

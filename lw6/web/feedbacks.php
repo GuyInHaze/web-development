@@ -1,28 +1,28 @@
 <?php  
-  include __DIR__ . '\..\src\common.inc.php';
-  if(getRequestMethod() === 'POST')
-  {
+include __DIR__ . '/../src/common.inc.php';
+if(getRequestMethod() === 'POST')
+{
     getUser();
-  }
-  else
-  {
+}
+else
+{
     feedbackPage();
-  }
+}
 
-  function getUser(): string
-  {
+function getUser(): string
+{
     $dataFeedback = [];
     $dataFeedback['success'] = true;    
-    $userEmail = mb_strtolower(getPostParameter('email'));
+    $userEmail = strtolower(getPostParameter('email'));
     $dataFeedback['enterEmail'] = $userEmail;
-    if (file_exists(__DIR__ . '\messages\' . $userEmail . '.txt'))
+    if (file_exists(__DIR__ . '/messages/' . $userEmail . '.txt'))
     {
-      $dataFeedback['data'] = file_get_contents(__DIR__ . '\messages\' . $userEmail . '.txt');
+        $dataFeedback['data'] = file_get_contents(__DIR__ . '/messages/' . $userEmail . '.txt');
     }
     else
     {
-      $dataFeedback['success'] = false;
+        $dataFeedback['success'] = false;
     }
     feedbackPage($dataFeedback);
-  }
+}
 ?>

@@ -10,7 +10,7 @@
 
 <body>
   <div class="form">
-    <form action="../../web/feedbacks.php" method="POST">
+    <form action="feedbacks.php" method="POST">
       <label class="paragraph">
         Введите email пользователя
       </label>

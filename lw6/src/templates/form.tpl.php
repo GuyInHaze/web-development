@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="form_head">Напиши мне</h2>
   <div class="form">
-    <form action="../../web/index.php" method="POST">
+    <form action="index.php" method="POST">
       <label for="input_name" class="paragraph">
         Ваше имя<span class="star">*</span>
         <span class="error_message">
@@ -49,7 +49,7 @@
       if ($args['success']):
         echo "<h3 class='message_success'> Сообщение успешно отправлено</h3>";
       endif;
-      if (!$args['success']):
+      if ((!$args['success'])):
         echo "<h3 class='message_error'>Введены некорректные данные</h3>";
       endif;
     endif; ?>

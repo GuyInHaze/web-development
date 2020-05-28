@@ -1,0 +1,6 @@
+
+    name: BblCTPEJl,
+    email: nike.moskvin@gmail.com,
+    place: Россия,
+    gender: Женский,
+    message: gg
