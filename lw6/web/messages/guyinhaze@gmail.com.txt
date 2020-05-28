@@ -1,0 +1,6 @@
+
+    name: BblCTPEJl,
+    email: guyinhaze@gmail.com,
+    place: Украина,
+    gender: Мужской,
+    message: prikol
