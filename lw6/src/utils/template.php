@@ -1,5 +1,5 @@
 <?php
 function renderTemplate(string $tplName, array $args = []): void
 {
-    include __DIR__ . '../src/templates/' . $tplName;
+    include '../src/templates/' . $tplName;
 }
